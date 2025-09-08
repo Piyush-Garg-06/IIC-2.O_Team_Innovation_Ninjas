@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriMarket - Products</title>
+<style>
+:root {
+  --sea-green: #2e8b57;
+  --warm-orange: #ff914d;
+  --off-white: #fdfdf9;
+  --dark-green: #14532d;
+  --light-olive: #a4b494;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  background: var(--off-white);
+  color: var(--dark-green);
+}
+
+/* Navbar */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(270deg, var(--sea-green), var(--warm-orange), var(--light-olive));
+  background-size: 600% 600%;
+  animation: gradientBG 12s ease infinite;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+  color: #ffe4b6;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Products Section */
+.products {
+  padding: 50px 10%;
+}
+
+.products h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg, var(--sea-green), var(--warm-orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientBG 8s ease infinite;
+}
+
+/* Animated Gradient Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+thead th {
+  padding: 15px;
+  text-align: center;
+  background: linear-gradient(90deg, var(--sea-green), var(--warm-orange));
+  color: #fff;
+  font-size: 1.1rem;
+  background-size: 400% 400%;
+  animation: gradientBG 8s ease infinite;
+}
+
+tbody tr {
+  transition: all 0.4s ease;
+}
+
+tbody tr:nth-child(even) td {
+  background: var(--off-white);
+}
+
+tbody td {
+  padding: 15px;
+  text-align: center;
+  font-size: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover td {
+  background: linear-gradient(90deg, var(--light-olive), var(--sea-green));
+  color: #fff;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Fade-in animation for rows */
+.fadeIn {
+  animation: fadeIn 0.7s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Add Product Form */
+.add-product {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.add-product h3 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  background: linear-gradient(90deg, var(--warm-orange), var(--sea-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientBG 8s ease infinite;
+}
+
+.add-product input, .add-product button {
+  padding: 12px 15px;
+  margin: 10px 5px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 200px;
+  transition: all 0.3s ease-in-out;
+}
+
+.add-product button {
+  background: linear-gradient(90deg, var(--warm-orange), var(--sea-green));
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.add-product button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  th, td {padding: 10px; font-size: 0.9rem;}
+  .add-product input, .add-product button {width: 90%;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">AgriMarket</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">My Products</a>
+    <a href="#">Orders</a>
+    <a href="#">Reports</a>
+    <a href="#">Help</a>
+    <a href="#">Logout</a>
+  </nav>
+</header>
+
+<section class="products">
+  <h2>Added Products</h2>
+  <table id="productTable">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Rate (₹/kg)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="fadeIn"><td>Tomato</td><td>25</td></tr>
+      <tr class="fadeIn"><td>Potato</td><td>18</td></tr>
+      <tr class="fadeIn"><td>Onion</td><td>30</td></tr>
+      <tr class="fadeIn"><td>Carrot</td><td>22</td></tr>
+      <tr class="fadeIn"><td>Cabbage</td><td>20</td></tr>
+      <tr class="fadeIn"><td>Cauliflower</td><td>28</td></tr>
+      <tr class="fadeIn"><td>Spinach</td><td>15</td></tr>
+      <tr class="fadeIn"><td>Brinjal</td><td>25</td></tr>
+      <tr class="fadeIn"><td>Peas</td><td>35</td></tr>
+    </tbody>
+  </table>
+
+  <div class="add-product">
+    <h3>Add Your Product</h3>
+    <input type="text" id="newProductName" placeholder="Product Name">
+    <input type="number" id="newProductRate" placeholder="Rate (₹/kg)">
+    <br>
+    <button onclick="addProduct()">Add Product</button>
+  </div>
+</section>
+
+<script>
+function addProduct() {
+  const nameInput = document.getElementById('newProductName');
+  const rateInput = document.getElementById('newProductRate');
+  const name = nameInput.value.trim();
+  const rate = rateInput.value.trim();
+  if(name && rate) {
+    const table = document.getElementById('productTable').getElementsByTagName('tbody')[0];
+    const row = table.insertRow();
+    row.classList.add('fadeIn');
+    const cell1 = row.insertCell(0);
+    const cell2 = row.insertCell(1);
+    cell1.innerText = name;
+    cell2.innerText = rate;
+    nameInput.value = '';
+    rateInput.value = '';
+  } else {
+    alert("Please enter product name and rate");
+  }
+}
+</script>
+
+</body>
+</html>
