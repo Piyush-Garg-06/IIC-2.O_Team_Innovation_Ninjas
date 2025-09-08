@@ -1,0 +1,172 @@
+/* Navbar */
+header {
+  background: linear-gradient(90deg, var(--sea-green), var(--warm-orange), var(--dark-green));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 15px 30px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 15px 30px;
+}
+
+nav a:hover {
+  color: var(--dark-green);
+  transform: translateY(-3px);
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, var(--off-white), #f4f9f4);
+  color: var(--dark-green);
+  padding-top: 70px;
+}
+
+/* Help Section */
+.help {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.help h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  background: linear-gradient(90deg, var(--sea-green), var(--warm-orange), var(--dark-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.section {
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.section h3 {
+  margin-bottom: 15px;
+  color: var(--sea-green);
+}
+
+/* FAQ Accordion */
+.faq {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.faq button {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  background: linear-gradient(90deg, var(--light-olive), var(--sea-green));
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.4s ease;
+  border-radius: 10px;
+}
+
+.faq button:hover {
+  background: linear-gradient(90deg, var(--warm-orange), var(--sea-green));
+}
+
+.faq p {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0 15px;
+  border-radius: 0 0 10px 10px;
+}
+
+.faq p.active {
+  max-height: 200px;
+  padding: 15px;
+}
+
+/* Contact form */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background: linear-gradient(90deg, var(--sea-green), var(--warm-orange));
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+footer {
+  background: var(--dark-green);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

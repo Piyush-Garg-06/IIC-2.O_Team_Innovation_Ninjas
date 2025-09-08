@@ -1,0 +1,174 @@
+:root {
+  --sea-green: #2e8b57;
+  --warm-orange: #ff914d;
+  --off-white: #fdfdf9;
+  --dark-green: #14532d;
+  --light-olive: #a4b494;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+body {
+  background: var(--off-white);
+  color: #333;
+}
+
+/* Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--sea-green),
+    var(--warm-orange),
+    var(--dark-green)
+  );
+  background-size: 300% 300%;
+  animation: gradientBG 12s ease infinite;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+.logo {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+nav {
+  display: flex;
+  gap: 25px;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+nav a:hover {
+  color: var(--light-olive);
+  transform: scale(1.1);
+}
+
+/* Orders Section */
+.orders-section {
+  margin-top: 60px;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.orders-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--sea-green);
+  margin-bottom: 40px;
+}
+
+.orders-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.order-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.order-card h3 {
+  margin: 0 0 15px 0;
+  color: var(--sea-green);
+  text-align: center;
+}
+
+.order-card p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.status-pending {
+  background: #ff914d;
+}
+.status-shipped {
+  background: #2e8b57;
+}
+.status-delivered {
+  background: #14532d;
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .orders-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .order-card {
+    width: 90%;
+    max-width: 350px;
+  }
+}

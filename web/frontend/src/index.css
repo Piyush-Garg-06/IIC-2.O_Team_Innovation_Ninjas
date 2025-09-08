@@ -1,0 +1,28 @@
+:root {
+  --sea-green: #2e8b57;
+  --warm-orange: #ff914d;
+  --off-white: #fdfdf9;
+  --dark-green: #14532d;
+  --light-olive: #a4b494;
+  
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  background-color: var(--off-white);
+  color: var(--dark-green);
+  overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
