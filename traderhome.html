@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriMarket</title>
+  <style>
+    :root {
+      --sea-green: #2e8b57;
+      --warm-orange: #ff914d;
+      --off-white: #fdfdf9;
+      --dark-green: #14532d;
+      --light-olive: #a4b494;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      transition: all 0.4s ease-in-out;
+    }
+
+    body {
+      background-color: var(--off-white);
+      color: var(--dark-green);
+      overflow-x: hidden;
+    }
+
+    /* Gradient Animation Keyframes */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Navbar */
+    header {
+      background: linear-gradient(270deg, var(--sea-green), var(--warm-orange), var(--light-olive));
+      background-size: 600% 600%;
+      animation: gradientBG 12s ease infinite;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      transform: translateY(0);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      transform: scale(1.1) translateY(-2px);
+      color: #ffefc1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(270deg, var(--sea-green), var(--warm-orange), var(--light-olive));
+      background-size: 600% 600%;
+      animation: gradientBG 12s ease infinite;
+      color: #fff;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+      animation: gradientBG 8s ease infinite;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+    }
+
+    /* Live Rates Section */
+    .live-rates {
+      padding: 50px 10%;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .live-rates h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      background: linear-gradient(90deg, var(--sea-green), var(--warm-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientBG 8s ease infinite;
+    }
+
+    .rates-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .rates-table th, .rates-table td {
+      padding: 15px;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .rates-table th {
+      background: linear-gradient(90deg, var(--sea-green), var(--warm-orange));
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .rates-table tr:nth-child(even) {
+      background: var(--off-white);
+    }
+
+    .rates-table tr:hover td {
+      background: linear-gradient(90deg, var(--light-olive), var(--sea-green));
+      color: #fff;
+      transform: scale(1.02);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(270deg, var(--sea-green), var(--warm-orange), var(--dark-green));
+      background-size: 600% 600%;
+      animation: gradientBG 12s ease infinite;
+      color: var(--off-white);
+      padding: 50px 10%;
+      margin-top: 50px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-box h3 {
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .footer-box a, .footer-box p {
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    .footer-box a:hover {
+      color: #ffe4b3;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .rates-table th, .rates-table td { padding: 10px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">AgriMarket</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">My Products</a>
+      <a href="#">Orders</a>
+      <a href="#">Reports</a>
+      <a href="#">Help</a>
+      <a href="#">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h1>Welcome to AgriMarket</h1>
+      <p>Connecting Farmers with Local Markets and Showing Live Product Prices</p>
+    </div>
+  </section>
+
+  <!-- Live Product Rates -->
+  <section class="live-rates">
+    <h2>Live Market Prices</h2>
+    <table class="rates-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Rate (₹/kg)</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody id="liveRatesBody">
+        <tr><td>Tomato</td><td id="tomatoRate">25</td><td id="tomatoTime">--:--</td></tr>
+        <tr><td>Potato</td><td id="potatoRate">18</td><td id="potatoTime">--:--</td></tr>
+        <tr><td>Onion</td><td id="onionRate">30</td><td id="onionTime">--:--</td></tr>
+        <tr><td>Carrot</td><td id="carrotRate">22</td><td id="carrotTime">--:--</td></tr>
+        <tr><td>Cabbage</td><td id="cabbageRate">20</td><td id="cabbageTime">--:--</td></tr>
+        <tr><td>Cauliflower</td><td id="cauliflowerRate">28</td><td id="cauliflowerTime">--:--</td></tr>
+        <tr><td>Spinach</td><td id="spinachRate">15</td><td id="spinachTime">--:--</td></tr>
+        <tr><td>Brinjal</td><td id="brinjalRate">25</td><td id="brinjalTime">--:--</td></tr>
+        <tr><td>Peas</td><td id="peasRate">35</td><td id="peasTime">--:--</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-box">
+        <h3>AgriMarket</h3>
+        <p>Connecting farmers and traders through real-time pricing and fair trade.</p>
+      </div>
+     
+      <div class="footer-box">
+        <h3>Contact Us</h3>
+        <p>Email: support@agrimarket.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Location: New Delhi, India</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 AgriMarket. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- Dynamic Live Rates Script -->
+  <script>
+    const products = [
+      { name: "tomato", min: 20, max: 30 },
+      { name: "potato", min: 15, max: 25 },
+      { name: "onion", min: 25, max: 35 },
+      { name: "carrot", min: 18, max: 28 },
+      { name: "cabbage", min: 17, max: 23 },
+      { name: "cauliflower", min: 25, max: 32 },
+      { name: "spinach", min: 12, max: 18 },
+      { name: "brinjal", min: 20, max: 28 },
+      { name: "peas", min: 30, max: 40 }
+    ];
+
+    function updateRates() {
+      const now = new Date();
+      const time = now.getHours().toString().padStart(2,"0") + ":" +
+                   now.getMinutes().toString().padStart(2,"0") + ":" +
+                   now.getSeconds().toString().padStart(2,"0");
+
+      products.forEach(p => {
+        const rate = (Math.random() * (p.max - p.min) + p.min).toFixed(2);
+        document.getElementById(p.name + "Rate").innerText = rate;
+        document.getElementById(p.name + "Time").innerText = time;
+      });
+    }
+
+    setInterval(updateRates, 3000); // हर 3 सेकंड में अपडेट
+    updateRates(); // initial call
+  </script>
+</body>
+</html>
