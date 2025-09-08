@@ -11,8 +11,6 @@
   --off-white: #fdfdf9;
   --dark-green: #14532d;
   --light-olive: #a4b494;
-  --red: #186737;
-  --green: #196b3a;
 }
 
 * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
@@ -26,105 +24,68 @@ nav {
   background: linear-gradient(90deg,var(--sea-green),var(--warm-orange),var(--dark-green));
   background-size: 300% 300%;
   animation: gradientBG 12s ease infinite;
-  padding:15px 20px;
+  padding:15px 50px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
 }
-nav h1 { color:white; font-size:1.6rem; font-weight:bold; }
+nav h1 { color:white; font-size:1.8rem; font-weight:bold; }
+nav ul { list-style:none; display:flex; gap:25px; }
+nav ul li a { text-decoration:none; color:white; font-weight:bold; transition:all 0.3s ease; }
+nav ul li a:hover { color:var(--light-olive); transform:scale(1.1); }
 
-/* Transaction Section */
-.transaction-section {
+/* Transaction Flow Section */
+.transaction-flow-section {
   margin-top:80px;
-  padding:20px;
+  padding:40px 20px;
 }
-.transaction-section h2 {
-  margin-bottom:20px; 
+.transaction-flow-section h2 {
+  text-align:center; 
+  margin-bottom:25px; 
   color:var(--sea-green);
-  font-size:1.6rem;
+  font-size:1.8rem;
+}
+
+/* Table */
+.transaction-table {
+  width:100%;
+  border-collapse: collapse;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  border-radius:12px;
+  overflow:hidden;
+  transition:all 0.3s ease;
+}
+.transaction-table th, .transaction-table td {
+  padding:15px;
   text-align:center;
 }
-
-/* Transaction Card */
-.transaction-card {
-  background:white;
-  border-radius:12px;
-  padding:15px;
-  margin-bottom:15px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
-}
-.transaction-card:hover {
-  transform:scale(1.02);
-  box-shadow:0 6px 16px rgba(0,0,0,0.2);
-}
-.transaction-left {
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-/* Logo Circle */
-.icon {
-  font-size:1.4rem;
-  width:40px;
-  height:40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
+.transaction-table th {
+  background: linear-gradient(90deg,var(--sea-green),var(--warm-orange));
   color:white;
 }
-.icon.sent { background:var(--red); }      /* Paid To */
-.icon.received { background:var(--green);} /* Paid Out / Received */
-
-.details {
-  display:flex;
-  flex-direction:column;
-}
-.details strong {
-  font-size:1rem;
-  color:#333;
-}
-.details small {
-  color:gray;
-  margin-top:5px;
-}
-.transaction-amount {
-  font-weight:bold;
-  font-size:1.2rem;
-  color:var(--dark-green);
-}
+.transaction-table tr:nth-child(even){ background:#f5f5f5; }
+.transaction-table tr:hover { background:linear-gradient(90deg, #d4f2e2, #ffe4d6); transform:scale(1.01); transition:0.3s; }
 
 /* Footer */
 footer {
   background: linear-gradient(90deg,var(--dark-green),var(--sea-green));
   color:white;
   text-align:center;
-  padding:15px;
-  margin-top:40px;
+  padding:20px;
+  margin-top:50px;
 }
 
-/* Animation */
 @keyframes gradientBG {
   0% { background-position:0% 50%; }
   50% { background-position:100% 50%; }
   100% { background-position:0% 50%; }
 }
 
-/* Responsive */
-@media(max-width:600px){
-  .transaction-card {
-    flex-direction:column;
-    align-items:flex-start;
-  }
-  .transaction-amount {
-    margin-top:10px;
-  }
+@media(max-width:768px){
+  nav { flex-direction:column; align-items:flex-start; }
+  nav ul { flex-direction:column; gap:10px; margin-top:10px; }
+  .transaction-table th, .transaction-table td { padding:10px; font-size:0.9rem; }
 }
 </style>
 </head>
@@ -133,78 +94,65 @@ footer {
 <!-- Navbar -->
 <nav>
   <h1>AgriMarket</h1>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#transactions">Transactions</a></li>
+    <li><a href="#orders">Orders</a></li>
+    <li><a href="#reports">Reports</a></li>
+    <li><a href="#help">Help</a></li>
+    <li><a href="#logout">Logout</a></li>
+  </ul>
 </nav>
 
-<!-- Transaction Section -->
-<section class="transaction-section">
+<!-- Transaction Flow Section -->
+<section id="transactions" class="transaction-flow-section">
   <h2>💳 Transaction History</h2>
-
-  <!-- Paid To -->
-  <div class="transaction-card">
-    <div class="transaction-left">
-      <div class="icon sent">↗</div>
-      <div class="details">
-        <strong>Paid to Maple Manipal</strong>
-        <small>5 hours ago</small>
-      </div>
-    </div>
-    <div class="transaction-amount">₹60</div>
-  </div>
-
-  <!-- Paid To -->
-  <div class="transaction-card">
-    <div class="transaction-left">
-      <div class="icon sent">↗</div>
-      <div class="details">
-        <strong>Mobile Recharge</strong>
-        <small>06 Sep 2025</small>
-      </div>
-    </div>
-    <div class="transaction-amount">₹16</div>
-  </div>
-
-  <!-- Paid To -->
-  <div class="transaction-card">
-    <div class="transaction-left">
-      <div class="icon sent">↗</div>
-      <div class="details">
-        <strong>Paid to Dev Gupta</strong>
-        <small>04 Sep 2025</small>
-      </div>
-    </div>
-    <div class="transaction-amount">₹182</div>
-  </div>
-
-  <!-- Paid To -->
-  <div class="transaction-card">
-    <div class="transaction-left">
-      <div class="icon sent">↗</div>
-      <div class="details">
-        <strong>Paid to Surendra Choudhary</strong>
-        <small>04 Sep 2025</small>
-      </div>
-    </div>
-    <div class="transaction-amount">₹20</div>
-  </div>
-
-  <!-- Paid Out / Money Received -->
-  <div class="transaction-card">
-    <div class="transaction-left">
-      <div class="icon received">↘</div>
-      <div class="details">
-        <strong>Money Received from Arjun</strong>
-        <small>01 Sep 2025</small>
-      </div>
-    </div>
-    <div class="transaction-amount" style="color:green;">+₹1500</div>
-  </div>
-
+  <table class="transaction-table">
+    <thead>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Recipient</th>
+        <th>Amount Paid</th>
+        <th>Date</th>
+        <th>Product</th>
+      </tr>
+    </thead>
+    <tbody id="transaction-body">
+      <!-- Dynamic transaction data -->
+    </tbody>
+  </table>
 </section>
 
 <!-- Footer -->
 <footer>
+  <p>📧 Contact us: <a href="mailto:support@agrimarket.com" style="color:white;text-decoration:underline;">support@agrimarket.com</a></p>
   <p>© 2025 AgriMarket. All Rights Reserved.</p>
 </footer>
+
+<script>
+// Example transaction history
+const transactions = [
+  {id:301, recipient:'Ramesh', amount:1200, date:'2025-09-08', product:'Tomato'},
+  {id:302, recipient:'Suresh', amount:2000, date:'2025-09-07', product:'Potato'},
+  {id:303, recipient:'Anita', amount:1500, date:'2025-09-06', product:'Onion'},
+  {id:304, recipient:'Kiran', amount:1800, date:'2025-09-05', product:'Carrot'},
+  {id:305, recipient:'Deepak', amount:1000, date:'2025-09-04', product:'Spinach'}
+];
+
+// Render transaction history
+const tbody = document.getElementById('transaction-body');
+transactions.forEach(tran => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td>${tran.id}</td>
+    <td>${tran.recipient}</td>
+    <td>₹${tran.amount}</td>
+    <td>${tran.date}</td>
+    <td>${tran.product}</td>
+  `;
+  tbody.appendChild(tr);
+});
+</script>
 
 </body>
 </html>
