@@ -1,0 +1,133 @@
+/* Hero Slideshow */
+.hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(270deg, rgba(20,83,45,0.6), rgba(255,145,77,0.6));
+  background-size: 400% 400%;
+  animation: gradientBG 8s ease infinite;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ffffff, #ffe4d6, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradientBG 5s ease infinite;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Benefits Section */
+.benefits {
+  padding: 50px 10%;
+}
+
+.benefits h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, var(--sea-green), var(--warm-orange), var(--dark-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientBG 8s ease infinite;
+  background-size: 200% auto;
+}
+
+.benefit-card {
+  background: linear-gradient(270deg, var(--sea-green), var(--warm-orange), var(--light-olive));
+  background-size: 600% 600%;
+  animation: gradientBG 10s ease infinite;
+  color: white;
+  padding: 35px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+.benefit-card h3 {
+  margin-bottom: 20px;
+  font-size: 1.9rem;
+  text-align: center;
+  color: #fff;
+}
+
+.section-block h4 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.section-block ul {
+  list-style: none;
+}
+
+.section-block ul li {
+  margin: 10px 0;
+  padding-left: 25px;
+  position: relative;
+  font-size: 1.05rem;
+}
+
+.section-block ul li::before {
+  content: "✔";
+  color: #fff;
+  position: absolute;
+  left: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero p { font-size: 1rem; }
+}
